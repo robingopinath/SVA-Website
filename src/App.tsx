@@ -33,7 +33,7 @@ function AppMain() {
   const whatsappUrl = `https://wa.me/919945166614?text=Hello%20Shree%20Varahi%20Associates,%20I%20would%20like%20to%20enquire%20about%20a%20Gold%20Loan%20Takeover.`;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-amber-500 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-amber-500 selection:text-white pb-20 sm:pb-0">
       
       {/* Top Navbar */}
       <Navbar 
