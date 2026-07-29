@@ -43,19 +43,6 @@ export const ProcessSteps: React.FC<ProcessStepsProps> = ({ onOpenEnquiry }) => 
   const { language, t } = useLanguage();
   const [activeStepIndex, setActiveStepIndex] = useState<number>(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(false);
-
-  // Auto-play / Tour feature
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isAutoPlaying) {
-      interval = setInterval(() => {
-        setActiveStepIndex((prev) => (prev + 1) % TAKEOVER_STEPS.length);
-      }, 4000);
-    }
-    return () => clearInterval(interval);
-  }, [isAutoPlaying]);
-
-  const activeStepIndexState = activeStepIndex;
   
   const takeoverStepsList: TakeoverStep[] = language === 'kn' ? [
     {
@@ -170,7 +157,16 @@ export const ProcessSteps: React.FC<ProcessStepsProps> = ({ onOpenEnquiry }) => 
           {/* Interactive Auto-Tour & Progress Controls Bar */}
           <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
             <button
-              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+              onClick={() => {
+                if (!isAutoPlaying) {
+                  if (activeStepIndex >= takeoverStepsList.length - 1) {
+                    setActiveStepIndex(0);
+                  }
+                  setIsAutoPlaying(true);
+                } else {
+                  setIsAutoPlaying(false);
+                }
+              }}
               className={`inline-flex items-center space-x-2 px-4 py-2 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer border ${
                 isAutoPlaying 
                   ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-lg shadow-amber-500/20' 
