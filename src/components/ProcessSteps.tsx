@@ -201,11 +201,11 @@ export const ProcessSteps: React.FC<ProcessStepsProps> = ({ onOpenEnquiry }) => 
         {/* Trendy Interactive Stepper Bar with Connected Timeline Progress Line */}
         <div className="mt-12 bg-slate-950/80 p-4 sm:p-6 rounded-3xl border border-slate-800/80 shadow-2xl backdrop-blur-md relative">
           
-          {/* Track Container */}
-          <div className="relative overflow-x-auto pb-2 pt-1 scrollbar-none">
+          {/* Track Container with generous top/bottom padding so active glow blur is fully visible */}
+          <div className="relative overflow-x-auto pb-4 pt-6 px-1 scrollbar-none">
             
             {/* Background Stepper Connected Progress Line */}
-            <div className="hidden md:block absolute top-[28px] left-[60px] right-[60px] h-1 bg-slate-800 rounded-full overflow-hidden pointer-events-none">
+            <div className="hidden md:block absolute top-[48px] left-[60px] right-[60px] h-1 bg-slate-800 rounded-full overflow-hidden pointer-events-none">
               <motion.div 
                 className="h-full bg-gradient-to-r from-[#1DB0F0] via-cyan-400 to-amber-400 rounded-full"
                 animate={{ width: `${(activeStepIndex / (takeoverStepsList.length - 1)) * 100}%` }}
@@ -232,7 +232,7 @@ export const ProcessSteps: React.FC<ProcessStepsProps> = ({ onOpenEnquiry }) => 
                       {isActive && (
                         <motion.div 
                           layoutId="activeStepperGlow"
-                          className="absolute -inset-2 bg-gradient-to-r from-[#1DB0F0] to-amber-400 rounded-2xl blur-xs opacity-75"
+                          className="absolute -inset-2.5 bg-gradient-to-r from-[#1DB0F0] via-cyan-400 to-amber-400 rounded-2xl blur-sm opacity-85"
                           transition={{ type: "spring", stiffness: 400, damping: 30 }}
                         />
                       )}

@@ -210,11 +210,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry, onScrollToCalculator 
 
             {/* Action Buttons with Glassmorphic Accent */}
             <div className="relative flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-              <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/20 via-sky-500/15 to-amber-500/10 rounded-2xl blur-xl opacity-70 pointer-events-none" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#0284c7]/20 via-sky-500/15 to-cyan-500/10 rounded-2xl blur-xl opacity-70 pointer-events-none" />
 
               <button
                 onClick={onScrollToCalculator}
-                className="relative z-10 w-full sm:w-auto px-6 py-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-sm shadow-lg shadow-amber-500/25 transition-all flex items-center justify-center space-x-2 cursor-pointer uppercase tracking-wider active:scale-95"
+                className="relative z-10 w-full sm:w-auto px-6 py-4 rounded-xl bg-[#0284c7] hover:bg-[#02699e] text-white font-extrabold text-sm shadow-lg shadow-[#0284c7]/30 transition-all flex items-center justify-center space-x-2 cursor-pointer uppercase tracking-wider active:scale-95"
               >
                 <Zap className="w-4 h-4 fill-current" />
                 <span>{t('heroCalcBtn')}</span>
